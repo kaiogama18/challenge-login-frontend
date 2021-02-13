@@ -7,8 +7,7 @@ export default createGlobalStyle`
     padding: 0;
     margin: 0;
 
-
-    font: 400  Montserrat, sans-serif;
+    font: 400 16px Montserrat, sans-serif;
 }
 
     * {

@@ -1,13 +1,16 @@
 import Document, {
     DocumentContext,
     DocumentInitialProps,
-
-    Head, Html,
-
+    Head,
+    Html,
     Main,
     NextScript
 } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
+
+const title = 'Login'
+const siteTitle = 'Teste Wiser'
+const description = 'Sondagem técnica e criativa'
 
 class MyDocument extends Document {
     static async getInitialProps(
@@ -43,21 +46,23 @@ class MyDocument extends Document {
             <Html lang="pt">
                 <Head>
                     <meta charSet="utf-8" />
-
+                    <title>{`${title} | ${siteTitle}`}</title>
+                    <meta name="description" content={description} />
+                    <meta property="og:type" content="website" />
+                    <meta property="og:title" content={title} />
+                    <meta property="og:description" content={description} />
+                    <meta property="og:site_name" content={siteTitle} />
                     <link rel="preconnect" href="https://fonts.gstatic.com" />
                     <link
-                        href="https://fonts.googleapis.com/css2?family=Montserrat:400,600"
+                        href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
                         rel="stylesheet"
                     />
-
-
                     <link rel="icon" href="/favicon.ico" />
-
-                    <body>
-                        <Main />
-                        <NextScript />
-                    </body>
                 </Head>
+                <body>
+                    <Main />
+                    <NextScript />
+                </body>
             </Html>
         )
     }

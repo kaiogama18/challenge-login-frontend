@@ -1,4 +1,12 @@
-import Document, { DocumentContext, DocumentInitialProps } from 'next/document'
+import Document, {
+    DocumentContext,
+    DocumentInitialProps,
+
+    Head, Html,
+
+    Main,
+    NextScript
+} from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
 
 class MyDocument extends Document {
@@ -29,6 +37,29 @@ class MyDocument extends Document {
         } finally {
             sheet.seal()
         }
+    }
+    render(): JSX.Element {
+        return (
+            <Html lang="pt">
+                <Head>
+                    <meta charSet="utf-8" />
+
+                    <link rel="preconnect" href="https://fonts.gstatic.com" />
+                    <link
+                        href="https://fonts.googleapis.com/css2?family=Montserrat:400,600"
+                        rel="stylesheet"
+                    />
+
+
+                    <link rel="icon" href="/favicon.ico" />
+
+                    <body>
+                        <Main />
+                        <NextScript />
+                    </body>
+                </Head>
+            </Html>
+        )
     }
 }
 

@@ -5,11 +5,10 @@ const Home: React.FC = () => {
         <div>
             <Head>
                 <title>Create Next App</title>
-                <link rel="icon" href="/favicon.ico" />
             </Head>
 
             <main>
-                <h1>testsssss</h1>
+                <h1>Olá seja bem-vindo</h1>
             </main>
         </div>
     )

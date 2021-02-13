@@ -15,9 +15,4 @@ export default createGlobalStyle`
     }
 `
 
-// export const Title = styled.h1`
-//     font-style: normal;
-//     font-weight: normal;
-//     font-size: 40px;
-//     line-height: 48px;
-// `
+

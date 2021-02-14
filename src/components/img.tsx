@@ -11,6 +11,7 @@ const DivImg = styled.div`
     height: 100%;
     position: relative;
     display: inline-block;
+    flex: 1;
 
     img {
         height: 100vh;
@@ -34,6 +35,8 @@ const DivImg = styled.div`
         );
         transform: rotate(-180deg);
     }
+
+
 `
 
 const Img: React.FC<InputProps> = ({ src, alt }) => {

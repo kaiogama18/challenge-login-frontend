@@ -11,6 +11,11 @@ export const Content = styled.div`
     align-items: start;
     flex-direction: column;
     justify-content: center;
+    flex: 1;
+
+    @media screen and (max-width: 992px) {
+        flex: 2;
+    }
 `
 
 export const ContentForm = styled.div`
@@ -21,7 +26,4 @@ export const ContentForm = styled.div`
     flex-direction: column;
 `
 
-export const Item = styled.div`
-    // align-self: center;
-    flex: ${({ flex }) => flex};
-`
+

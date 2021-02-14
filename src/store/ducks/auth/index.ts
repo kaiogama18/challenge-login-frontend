@@ -19,7 +19,7 @@ const reducer: Reducer<AuthState> = (state = INITIAL_STATE, action) => {
         case AuthTypes.LOGIN_SUCCESS:
             return {
                 ...state,
-                user: action.payload.user,
+                user: action.user,
                 isLogged: true,
                 loading: false
             }

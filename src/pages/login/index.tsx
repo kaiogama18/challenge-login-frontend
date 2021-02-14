@@ -15,11 +15,11 @@ interface Values {
 }
 
 interface StateProps {
-    user: User[]
+    auth: User
 }
 
 interface DispatchProps {
-    loginRequest()
+    loginRequest(): void
 }
 
 // interface OwnProps {}
@@ -27,9 +27,8 @@ interface DispatchProps {
 // type Props = StateProps & DispatchProps & OwnProps
 type Props = StateProps & DispatchProps
 
-const Login: React.FC<Props> = () => {
-
-
+const Login: React.FC<Props> = ({ auth }) => {
+    console.log(JSON.stringify(auth.email))
     return (
         <>
             <Head>
@@ -44,9 +43,6 @@ const Login: React.FC<Props> = () => {
                     <ContentForm>
                         <Text fontSize="40px" fontMobile="24px">
                             Olá, seja bem-vindo!
-
-                            {/* {user.map} */}
-
                         </Text>
                         <Text
                             fontSize="16px"

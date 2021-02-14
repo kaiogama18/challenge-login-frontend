@@ -8,7 +8,7 @@ import Document, {
 } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
 
-const title = 'Login'
+const titles = 'Login'
 const siteTitle = 'Teste Wiser'
 const description = 'Sondagem técnica e criativa'
 
@@ -46,10 +46,9 @@ class MyDocument extends Document {
             <Html lang="pt">
                 <Head>
                     <meta charSet="utf-8" />
-                    <title>{`${title} | ${siteTitle}`}</title>
                     <meta name="description" content={description} />
                     <meta property="og:type" content="website" />
-                    <meta property="og:title" content={title} />
+                    <meta property="og:title" content={titles} />
                     <meta property="og:description" content={description} />
                     <meta property="og:site_name" content={siteTitle} />
                     <link rel="preconnect" href="https://fonts.gstatic.com" />

@@ -28,7 +28,7 @@ interface DispatchProps {
 type Props = StateProps & DispatchProps
 
 const Login: React.FC<Props> = ({ auth }) => {
-    console.log(JSON.stringify(auth.email))
+    // console.log(JSON.stringify(auth.email))
     return (
         <>
             <Head>

@@ -14,8 +14,11 @@ export const Content = styled.div`
 `
 
 export const ContentForm = styled.div`
-    margin:  0 20%;
-
+    width: 257px;
+    height: 518px;
+    display: flex;
+    margin-left: 20%;
+    flex-direction: column;
 `
 
 export const Item = styled.div`

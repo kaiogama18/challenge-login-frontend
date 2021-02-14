@@ -4,12 +4,14 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     align?: string
     color?: string
     size?: number
+    width?: number
     weight?: number
     marginTop?: number
     marginBottom?: number
 }
 
 const Paragraph = styled.div`
+    width: ${props => props.width}px;
     color: ${props =>
         props.color == 'neutral'
             ? props.theme.colors.neutral
@@ -23,21 +25,24 @@ const Paragraph = styled.div`
 
 const Text: React.FC<InputProps> = ({
     size,
-    weight,
     color,
+    align,
+    width,
+    weight,
     marginTop,
     marginBottom,
-    align,
+
     ...rest
 }) => {
     return (
         <Paragraph
             size={size}
-            weight={weight}
+            align={align}
+            width={width}
             color={color}
+            weight={weight}
             marginTop={marginTop}
             marginBottom={marginBottom}
-            align={align}
             {...rest}
         />
     )

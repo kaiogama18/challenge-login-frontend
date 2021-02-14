@@ -26,16 +26,17 @@ const Login: React.FC = () => {
                     <Content>
                         <ContentForm>
                             <Text size={40}>
-                                Olá, seja <br></br>bem-vindo!
+                                Olá, seja bem-vindo!
                             </Text>
                             <Text
                                 size={16}
                                 weight={600}
                                 marginTop={16}
                                 marginBottom={40}
+                                width={222}
                                 color="neutral"
                             >
-                                Para acessar a plataforma, <br></br>faça seu
+                                Para acessar a plataforma, faça seu
                                 login.
                             </Text>
                             <Formik
@@ -72,7 +73,7 @@ const Login: React.FC = () => {
                                 marginTop={32}
                                 align="center"
                             >
-                                Esqueceu seu login ou senha? <br></br>Clique
+                                Esqueceu seu login ou senha? Clique
                                 <a href="/"> aqui</a>
                             </Text>
                         </ContentForm>

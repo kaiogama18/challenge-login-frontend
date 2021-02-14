@@ -39,13 +39,16 @@ const Login: React.FC<Props> = () => {
                 />
                 <Content>
                     <ContentForm>
-                        <Text size="40px">Olá, seja bem-vindo!</Text>
+                        <Text fontSize="40px" fontMobile="24px">
+                            Olá, seja bem-vindo!
+                        </Text>
                         <Text
-                            size="16px"
+                            fontSize="16px"
+                            fontMobile="12px"
                             weight={600}
-                            marginTop="16px"
-                            marginBottom="40px"
-                            width="222px"
+                            marginTop="5%"
+                            marginBottom="5%"
+                            width="90%"
                             color="neutral"
                         >
                             Para acessar a plataforma, faça seu login.
@@ -74,22 +77,17 @@ const Login: React.FC<Props> = () => {
                                     id="password"
                                     name="Senha"
                                     placeholder="*******"
-                                    msgError="Senha Inválida,;"
+                                    msgError="Senha Inválida;"
                                 />
 
                                 <Button type="submit"> Entrar </Button>
                             </Form>
                         </Formik>
-                        <Text
-                            size="14px"
-                            color="neutral"
-                            marginTop="32px"
-                            align="center"
-                        >
-                            Esqueceu seu login ou senha? Clique
-                            <a href="/"> aqui</a>
-                        </Text>
                     </ContentForm>
+                    <Text fontSize="14px" color="neutral" align="center" marginLeft="22%" width="212px">
+                        Esqueceu seu login ou senha? Clique
+                        <a href="/"> aqui</a>
+                    </Text>
                 </Content>
             </Container>
         </>

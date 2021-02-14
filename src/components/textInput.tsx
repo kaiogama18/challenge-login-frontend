@@ -9,7 +9,6 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     msgError: string
 }
 
-
 const Input = styled.div`
     display: flex;
     flex-direction: column;
@@ -28,6 +27,10 @@ const Input = styled.div`
         padding: 17px 0 17px 16px;
         border: 1px solid ${props => props.theme.colors.neutral && ' #FF377F'};
     }
+
+    @media screen and (max-width: 600px) {
+        text-align: start;
+    }
 `
 
 const TextInput: React.FC<InputProps> = ({
@@ -36,14 +39,16 @@ const TextInput: React.FC<InputProps> = ({
     placeholder,
     msgError
 }) => {
-
-
-
     return (
         <Input>
             <label htmlFor={id}>{name}</label>
             <Field id={id} name={id} placeholder={placeholder} type={id} />
-            <Text size="10px" color="error" marginTop="6px" marginLeft="10px">
+            <Text
+                fontSize="10px"
+                color="error"
+                marginTop="6px"
+                marginLeft="10px"
+            >
                 {msgError}
             </Text>
         </Input>

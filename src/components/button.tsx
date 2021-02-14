@@ -6,6 +6,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {}
 const Btn = styled.button`
     width: 256px;
     height: 48px;
+    font-size: 16px;
     margin-top: 16px;
     border-radius: 8px;
     border-color: transparent;
@@ -18,6 +19,19 @@ const Btn = styled.button`
         ${props => props.theme.colors.btnPrimary} 0%,
         ${props => props.theme.colors.btnSecondary} 99.18%
     );
+
+    @media screen and (max-width: 600px) {
+        width: 168px;
+        height: 48px;
+        left: 50%;
+        left: 50%;
+        right: 50%;
+        left: 0;
+        right: 0;
+        position: fixed;
+        margin: auto;
+        box-shadow: 0 0 0;
+    }
 `
 
 const Button: React.FC<InputProps> = ({ type, ...rest }) => {

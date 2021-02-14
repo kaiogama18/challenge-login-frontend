@@ -1,18 +1,19 @@
 import { InputHTMLAttributes } from 'react'
 import styled from 'styled-components'
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-    size?: string
     align?: string
     color?: string
     width?: string
     weight?: number
+    fontSize?: string
     marginTop?: string
+    fontMobile?: string
     marginLeft?: string
     marginBottom?: string
 }
 const Paragraph = styled.div`
     width: ${props => props.width};
-    font-size: ${props => props.size};
+    font-size: ${props => props.fontSize};
     color: ${props =>
         props.color == 'error'
             ? props.theme.colors.error
@@ -25,15 +26,20 @@ const Paragraph = styled.div`
     margin-left: ${props => props.marginLeft};
     margin-bottom: ${props => props.marginBottom};
 
+    @media screen and (max-width: 600px) {
+        margin-left: 0;
+        font-size: ${props => props.fontMobile};
+    }
 `
 
 const Text: React.FC<InputProps> = ({
-    size,
+    fontSize,
     color,
     align,
     width,
     weight,
     marginTop,
+    fontMobile,
     marginLeft,
     marginBottom,
 
@@ -41,12 +47,13 @@ const Text: React.FC<InputProps> = ({
 }) => {
     return (
         <Paragraph
-            size={size}
             align={align}
             width={width}
             color={color}
             weight={weight}
+            fontSize={fontSize}
             marginTop={marginTop}
+            fontMobile={fontMobile}
             marginLeft={marginLeft}
             marginBottom={marginBottom}
             {...rest}

@@ -35,8 +35,6 @@ const DivImg = styled.div`
         );
         transform: rotate(-180deg);
     }
-
-
 `
 
 const Img: React.FC<InputProps> = ({ src, alt }) => {

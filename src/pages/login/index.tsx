@@ -10,19 +10,25 @@ interface Values {
 const Login: React.FC = () => {
     return (
         <Container>
-            <Item flex={1}>
-                {/* <Image
+            {/* <Item flex={1}>
+                <Image
                     src="/shutterstocks.jpeg"
                     alt="imagen de uma mulher olhando para um notebook"
-                /> */}
-            </Item>
+                />
+            </Item> */}
             <Item flex={1}>
                 <Content>
-                    <Text size={40}>
-                        Olá, seja <br></br>bem-vindo!!
-                    </Text>
                     <ContentForm>
-                        <Text size={16} weight={600} color="neutral">
+                        <Text size={40}>
+                            Olá, seja <br></br>bem-vindo!
+                        </Text>
+                        <Text
+                            size={16}
+                            weight={600}
+                            marginTop={16}
+                            marginBottom={40}
+                            color="neutral"
+                        >
                             Para acessar a plataforma, <br></br>faça seu login.
                         </Text>
                         <Formik
@@ -53,9 +59,14 @@ const Login: React.FC = () => {
                                 <Button type="submit"> Entrar </Button>
                             </Form>
                         </Formik>
-                        <Text size={14} color="neutral" marginTop={32} align="center">
-                            Esqueceu seu login ou senha?{' '}
-                            <br></br>Clique<a href="/"> aqui</a>
+                        <Text
+                            size={14}
+                            color="neutral"
+                            marginTop={32}
+                            align="center"
+                        >
+                            Esqueceu seu login ou senha? <br></br>Clique
+                            <a href="/"> aqui</a>
                         </Text>
                     </ContentForm>
                 </Content>

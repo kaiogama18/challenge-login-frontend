@@ -1,11 +1,12 @@
 import { InputHTMLAttributes } from 'react'
 import styled from 'styled-components'
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+    align?: string
     color?: string
     size?: number
     weight?: number
     marginTop?: number
-    align?: string
+    marginBottom?: number
 }
 
 const Paragraph = styled.div`
@@ -16,6 +17,7 @@ const Paragraph = styled.div`
     font-size: ${props => props.size}px;
     font-weight: ${props => props.weight};
     margin-top: ${props => props.marginTop}px;
+    margin-bottom: ${props => props.marginBottom}px;
     text-align: ${props => props.align};
 `
 
@@ -24,6 +26,7 @@ const Text: React.FC<InputProps> = ({
     weight,
     color,
     marginTop,
+    marginBottom,
     align,
     ...rest
 }) => {
@@ -33,6 +36,7 @@ const Text: React.FC<InputProps> = ({
             weight={weight}
             color={color}
             marginTop={marginTop}
+            marginBottom={marginBottom}
             align={align}
             {...rest}
         />

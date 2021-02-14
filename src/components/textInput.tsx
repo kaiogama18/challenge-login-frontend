@@ -9,6 +9,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     msgError: string
 }
 
+
 const Input = styled.div`
     display: flex;
     flex-direction: column;
@@ -35,6 +36,9 @@ const TextInput: React.FC<InputProps> = ({
     placeholder,
     msgError
 }) => {
+
+
+
     return (
         <Input>
             <label htmlFor={id}>{name}</label>

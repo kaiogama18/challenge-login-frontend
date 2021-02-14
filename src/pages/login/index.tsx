@@ -1,7 +1,12 @@
 import { Form, Formik, FormikHelpers } from 'formik'
 import Head from 'next/head'
+import { connect } from 'react-redux'
+import { bindActionCreators, Dispatch } from 'redux'
 import Photo from '../../assets/shutterstocks.webp'
 import { Button, Img, Text, TextInput } from '../../components'
+import { ApplicationState } from '../../store'
+import * as AuthActions from '../../store/ducks/auth/actions'
+import { User } from '../../store/ducks/auth/types'
 import { Container, Content, ContentForm, Item } from './styles'
 
 interface Values {
@@ -9,7 +14,19 @@ interface Values {
     password: string
 }
 
-const Login: React.FC = () => {
+interface StateProps {
+    user: User[]
+}
+
+interface DispatchProps {
+    loginRequest()
+}
+
+interface OwnProps {}
+
+type Props = StateProps & DispatchProps & OwnProps
+
+const Login: React.FC<Props> = () => {
     return (
         <>
             <Head>
@@ -83,4 +100,11 @@ const Login: React.FC = () => {
     )
 }
 
-export default Login
+const mapStateToProps = (state: ApplicationState) => ({
+    // user: state.auth.isLogged
+})
+
+const mapDispatchToProps = (dispatch: Dispatch) =>
+    bindActionCreators(AuthActions, dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login)

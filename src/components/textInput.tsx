@@ -39,6 +39,7 @@ const TextInput: React.FC<InputProps> = ({
     placeholder,
     msgError
 }) => {
+
     return (
         <Input>
             <label htmlFor={id}>{name}</label>

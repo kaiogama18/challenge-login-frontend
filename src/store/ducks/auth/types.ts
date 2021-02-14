@@ -3,7 +3,6 @@
  * */
 
 export enum AuthTypes {
-    AUTO_LOGIN = 'AUTH_AUTO_LOGIN',
 
     LOGIN_REQUEST = 'AUTH/LOGIN_REQUEST',
     LOGIN_SUCCESS = 'AUTH/LOGIN_SUCCESS',
@@ -17,8 +16,9 @@ export enum AuthTypes {
  * */
 
 export interface User {
-    id: number
-    name: string
+    id: string
+    email: string
+    password: string
 }
 
 /**
@@ -26,7 +26,7 @@ export interface User {
  * */
 
 export interface AuthState {
-    readonly data: User[]
+    readonly user: User
     readonly isLogged: boolean
     readonly loading: boolean
     readonly error: boolean

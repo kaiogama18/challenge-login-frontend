@@ -22,11 +22,14 @@ interface DispatchProps {
     loginRequest()
 }
 
-interface OwnProps {}
+// interface OwnProps {}
 
-type Props = StateProps & DispatchProps & OwnProps
+// type Props = StateProps & DispatchProps & OwnProps
+type Props = StateProps & DispatchProps
 
 const Login: React.FC<Props> = () => {
+
+
     return (
         <>
             <Head>
@@ -41,6 +44,9 @@ const Login: React.FC<Props> = () => {
                     <ContentForm>
                         <Text fontSize="40px" fontMobile="24px">
                             Olá, seja bem-vindo!
+
+                            {/* {user.map} */}
+
                         </Text>
                         <Text
                             fontSize="16px"
@@ -84,7 +90,13 @@ const Login: React.FC<Props> = () => {
                             </Form>
                         </Formik>
                     </ContentForm>
-                    <Text fontSize="14px" color="neutral" align="center" marginLeft="22%" width="212px">
+                    <Text
+                        fontSize="14px"
+                        color="neutral"
+                        align="center"
+                        marginLeft="22%"
+                        width="212px"
+                    >
                         Esqueceu seu login ou senha? Clique
                         <a href="/"> aqui</a>
                     </Text>
@@ -95,7 +107,7 @@ const Login: React.FC<Props> = () => {
 }
 
 const mapStateToProps = (state: ApplicationState) => ({
-    // user: state.auth.isLogged
+    auth: state.auth.user
 })
 
 const mapDispatchToProps = (dispatch: Dispatch) =>

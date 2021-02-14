@@ -4,6 +4,8 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     color?: string
     size?: number
     weight?: number
+    marginTop?: number
+    align?: string
 }
 
 const Paragraph = styled.div`
@@ -13,10 +15,28 @@ const Paragraph = styled.div`
             : props.theme.colors.text};
     font-size: ${props => props.size}px;
     font-weight: ${props => props.weight};
+    margin-top: ${props => props.marginTop}px;
+    text-align: ${props => props.align};
 `
 
-const Text: React.FC<InputProps> = ({ size, weight, color, ...rest }) => {
-    return <Paragraph size={size} weight={weight} color={color} {...rest} />
+const Text: React.FC<InputProps> = ({
+    size,
+    weight,
+    color,
+    marginTop,
+    align,
+    ...rest
+}) => {
+    return (
+        <Paragraph
+            size={size}
+            weight={weight}
+            color={color}
+            marginTop={marginTop}
+            align={align}
+            {...rest}
+        />
+    )
 }
 
 export default Text

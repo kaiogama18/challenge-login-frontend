@@ -16,6 +16,6 @@ export const ContentForm = styled.div`
 `
 
 export const Item = styled.div`
-    lign-self: center;
+    align-self: center;
     flex: ${({ flex }) => flex};
 `

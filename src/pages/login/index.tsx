@@ -53,6 +53,10 @@ const Login: React.FC = () => {
                                 <Button type="submit"> Entrar </Button>
                             </Form>
                         </Formik>
+                        <Text size={14} color="neutral" marginTop={32} align="center">
+                            Esqueceu seu login ou senha?{' '}
+                            <br></br>Clique<a href="/"> aqui</a>
+                        </Text>
                     </ContentForm>
                 </Content>
             </Item>

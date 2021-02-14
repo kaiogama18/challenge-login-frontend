@@ -1,6 +1,7 @@
 import { Form, Formik, FormikHelpers } from 'formik'
 import Head from 'next/head'
-import { Button, Image, Text, TextInput } from '../../components'
+import Photo from '../../assets/shutterstocks.webp'
+import { Button, Img, Text, TextInput } from '../../components'
 import { Container, Content, ContentForm, Item } from './styles'
 
 interface Values {
@@ -16,8 +17,8 @@ const Login: React.FC = () => {
             </Head>
             <Container>
                 <Item flex={1}>
-                    <Image
-                        src="/shutterstocks.jpeg"
+                    <Img
+                        src={Photo}
                         alt="imagen de uma mulher olhando para um notebook"
                     />
                 </Item>

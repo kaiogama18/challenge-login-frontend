@@ -1,26 +1,30 @@
 import { InputHTMLAttributes } from 'react'
 import styled from 'styled-components'
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+    size?: string
     align?: string
     color?: string
-    size?: number
-    width?: number
+    width?: string
     weight?: number
-    marginTop?: number
-    marginBottom?: number
+    marginTop?: string
+    marginLeft?: string
+    marginBottom?: string
 }
-
 const Paragraph = styled.div`
-    width: ${props => props.width}px;
+    width: ${props => props.width};
+    font-size: ${props => props.size};
     color: ${props =>
-        props.color == 'neutral'
+        props.color == 'error'
+            ? props.theme.colors.error
+            : props.color == 'neutral'
             ? props.theme.colors.neutral
             : props.theme.colors.text};
-    font-size: ${props => props.size}px;
-    font-weight: ${props => props.weight};
-    margin-top: ${props => props.marginTop}px;
-    margin-bottom: ${props => props.marginBottom}px;
     text-align: ${props => props.align};
+    font-weight: ${props => props.weight};
+    margin-top: ${props => props.marginTop};
+    margin-left: ${props => props.marginLeft};
+    margin-bottom: ${props => props.marginBottom};
+
 `
 
 const Text: React.FC<InputProps> = ({
@@ -30,6 +34,7 @@ const Text: React.FC<InputProps> = ({
     width,
     weight,
     marginTop,
+    marginLeft,
     marginBottom,
 
     ...rest
@@ -42,6 +47,7 @@ const Text: React.FC<InputProps> = ({
             color={color}
             weight={weight}
             marginTop={marginTop}
+            marginLeft={marginLeft}
             marginBottom={marginBottom}
             {...rest}
         />

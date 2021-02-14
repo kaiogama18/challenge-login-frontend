@@ -25,19 +25,16 @@ const Login: React.FC = () => {
                 <Item flex={1}>
                     <Content>
                         <ContentForm>
-                            <Text size={40}>
-                                Olá, seja bem-vindo!
-                            </Text>
+                            <Text size="40px">Olá, seja bem-vindo!</Text>
                             <Text
-                                size={16}
+                                size="16px"
                                 weight={600}
-                                marginTop={16}
-                                marginBottom={40}
-                                width={222}
+                                marginTop="16px"
+                                marginBottom="40px"
+                                width="222px"
                                 color="neutral"
                             >
-                                Para acessar a plataforma, faça seu
-                                login.
+                                Para acessar a plataforma, faça seu login.
                             </Text>
                             <Formik
                                 initialValues={{ email: '', password: '' }}
@@ -56,21 +53,23 @@ const Login: React.FC = () => {
                                         id="email"
                                         name="E-mail"
                                         placeholder="user.name@mail.com"
+                                        msgError="Digite um e-mail válido;"
                                     />
 
                                     <TextInput
                                         id="password"
                                         name="Senha"
                                         placeholder="*******"
+                                        msgError="Senha Inválida,;"
                                     />
 
                                     <Button type="submit"> Entrar </Button>
                                 </Form>
                             </Formik>
                             <Text
-                                size={14}
+                                size="14px"
                                 color="neutral"
-                                marginTop={32}
+                                marginTop="32px"
                                 align="center"
                             >
                                 Esqueceu seu login ou senha? Clique

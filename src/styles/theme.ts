@@ -7,7 +7,8 @@ const theme = {
         neutralLightest: '#ffff',
         btnPrimary: '#383e71',
         btnSecondary: '#9d25b0',
-        btnNeutral: '#cf99db'
+        btnNeutral: '#cf99db',
+        error: '#FF377F'
     }
 }
 

@@ -1,5 +1,5 @@
 import { Form, Formik, FormikHelpers } from 'formik'
-import { Button, Text, TextInput } from '../../components'
+import { Button, Image, Text, TextInput } from '../../components'
 import { Container, Content, ContentForm, Item } from './styles'
 
 interface Values {
@@ -10,12 +10,12 @@ interface Values {
 const Login: React.FC = () => {
     return (
         <Container>
-            {/* <Item flex={1}>
+            <Item flex={1}>
                 <Image
                     src="/shutterstocks.jpeg"
                     alt="imagen de uma mulher olhando para um notebook"
                 />
-            </Item> */}
+            </Item>
             <Item flex={1}>
                 <Content>
                     <ContentForm>

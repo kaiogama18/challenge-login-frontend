@@ -7,11 +7,11 @@ export const Container = styled.div`
 `
 export const Content = styled.div`
     display: flex;
-    flex-direction: column;
     align-items: center;
     place-content: center;
+    flex-direction: column;
 `
 
-export const Form = styled.div`
+export const ContentForm = styled.div`
     margin-top: 16px;
 `

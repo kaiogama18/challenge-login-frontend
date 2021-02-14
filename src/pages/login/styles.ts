@@ -7,15 +7,18 @@ export const Container = styled.div`
 `
 export const Content = styled.div`
     display: flex;
-    align-items: center;
+    height: 100vh;
+    align-items: start;
     flex-direction: column;
+    justify-content: center;
 `
 
 export const ContentForm = styled.div`
-    margin-top: 16px;
+    margin:  0 20%;
+
 `
 
 export const Item = styled.div`
-    align-self: center;
+    // align-self: center;
     flex: ${({ flex }) => flex};
 `

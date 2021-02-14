@@ -13,7 +13,7 @@ const DivImg = styled.div`
     display: inline-block;
 
     img {
-        height: 99vh;
+        height: 100vh;
         max-width: 100%;
         object-fit: cover;
     }

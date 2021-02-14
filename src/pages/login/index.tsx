@@ -1,6 +1,5 @@
 import { Form, Formik, FormikHelpers } from 'formik'
-import Text from '../../components/text'
-import TextInput from '../../components/textInput'
+import { Button, Text, TextInput } from '../../components'
 import { Container, Content, ContentForm } from './styles'
 
 interface Values {
@@ -12,7 +11,9 @@ const Login: React.FC = () => {
     return (
         <Container>
             <Content>
-                <Text size={40}>Olá, seja <br></br>bem-vindo!!</Text>
+                <Text size={40}>
+                    Olá, seja <br></br>bem-vindo!!
+                </Text>
                 <ContentForm>
                     <Text size={16} weight={600} color="neutral">
                         Para acessar a plataforma, <br></br>faça seu login.
@@ -42,7 +43,7 @@ const Login: React.FC = () => {
                                 placeholder="*******"
                             />
 
-                            <button type="submit">Entrar</button>
+                            <Button type="submit"> Entrar </Button>
                         </Form>
                     </Formik>
                 </ContentForm>
@@ -52,20 +53,3 @@ const Login: React.FC = () => {
 }
 
 export default Login
-
-{
-    /* <label htmlFor="email">E-mail</label>
-                            <Field
-                                id="email"
-                                name="email"
-                                placeholder="user.name@mail.com"
-                            /> */
-}
-{
-    /* <label htmlFor="password">Senha</label>
-                            <Field
-                                id="password"
-                                name="password"
-                                placeholder="*******"
-                            /> */
-}

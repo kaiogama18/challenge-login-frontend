@@ -16,7 +16,6 @@ const Paragraph = styled.div`
 `
 
 const Text: React.FC<InputProps> = ({ size, weight, color, ...rest }) => {
-    console.log(color)
     return <Paragraph size={size} weight={weight} color={color} {...rest} />
 }
 

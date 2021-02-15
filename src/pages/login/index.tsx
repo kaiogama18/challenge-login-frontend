@@ -44,6 +44,8 @@ const Login: React.FC<Props> = ({ auth }) => {
                 />
                 <Content>
                     <ContentForm>
+                        {/* <Text title>Olá, seja bem-vindo!</Text> */}
+
                         <Text fontSize="40px" fontMobile="24px">
                             Olá, seja bem-vindo!
                         </Text>
@@ -88,9 +90,7 @@ const Login: React.FC<Props> = ({ auth }) => {
                                         >
                                             {errors.email}
                                         </Text>
-                                    ) : (
-                                        null
-                                    )}
+                                    ) : null}
 
                                     <TextInput
                                         id="password"

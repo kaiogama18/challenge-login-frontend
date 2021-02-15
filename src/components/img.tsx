@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { InputHTMLAttributes } from 'react'
 import styled from 'styled-components'
 
@@ -35,12 +36,17 @@ const DivImg = styled.div`
         );
         transform: rotate(-180deg);
     }
+
+    @media screen and (max-width: 600px) {
+        width: 100%;
+        height: 100%;
+    }
 `
 
 const Img: React.FC<InputProps> = ({ src, alt }) => {
     return (
         <DivImg>
-            <img src={src} alt={alt} />
+            <Image src={src} alt={alt} width="900" height="100" />
         </DivImg>
     )
 }

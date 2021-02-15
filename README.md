@@ -17,11 +17,4 @@ Este projeto faz parte do teste técnico e tem com função demostrar o fluxo de
 
 Em seguida, visite [http://localhost:3000](http://localhost:3000) em seu navegador.
 
-### 🚀 Performance
-
-Configuração usada seguindo as metricas do lighthouse
-
-- criação do webpack para o Empacotamento da aplicação
-
-
 ---

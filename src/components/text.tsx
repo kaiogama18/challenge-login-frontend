@@ -13,6 +13,12 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     marginBottom?: string
 }
 
+interface Error {
+    alert?: boolean
+}
+
+type Props = InputProps & Error
+
 const Paragraph = styled.div`
     width: ${props => props.width};
     font-size: ${props => props.fontSize};
@@ -40,7 +46,7 @@ const Paragraph = styled.div`
     }
 `
 
-const Text: React.FC<InputProps> = ({
+const Text: React.FC<Props> = ({
     fontSize,
     color,
     align,
@@ -51,6 +57,7 @@ const Text: React.FC<InputProps> = ({
     marginLeft,
     marginBottom,
     colorMobile,
+    alert,
     ...rest
 }) => {
     return (
@@ -66,7 +73,8 @@ const Text: React.FC<InputProps> = ({
             marginBottom={marginBottom}
             colorMobile={colorMobile}
             {...rest}
-        />
+        >
+        </Paragraph>
     )
 }
 

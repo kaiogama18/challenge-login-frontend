@@ -17,7 +17,7 @@ export interface Values {
 
 interface StateProps {
     auth: User[]
-    loading: boolean
+
 }
 
 interface DispatchProps {
@@ -32,6 +32,7 @@ const SignupSchema = Yup.object().shape({
 })
 
 const Login: React.FC<Props> = ({ auth }) => {
+
     return (
         <>
             <Head>
@@ -75,40 +76,35 @@ const Login: React.FC<Props> = ({ auth }) => {
                         >
                             {({ errors, touched }) => (
                                 <Form>
-                                    <TextInput
-                                        id="email"
-                                        name="E-mail"
-                                        placeholder="user.name@mail.com"
-                                    />
-
                                     {errors.email && touched.email ? (
-                                        <Text
-                                            fontSize="10px"
-                                            color="error"
-                                            marginTop="6px"
-                                            marginLeft="10px"
-                                        >
-                                            {errors.email}
-                                        </Text>
-                                    ) : null}
-
-                                    <TextInput
-                                        id="password"
-                                        name="Senha"
-                                        placeholder="*******"
-                                        msgError="Senha Inválida;"
-                                    />
+                                        <TextInput
+                                            id="email"
+                                            name="E-mail"
+                                            placeholder="user.name@mail.com"
+                                            msgError={errors.email}
+                                        />
+                                    ) : (
+                                        <TextInput
+                                            id="email"
+                                            name="E-mail"
+                                            placeholder="user.name@mail.com"
+                                        />
+                                    )}
 
                                     {errors.password && touched.password ? (
-                                        <Text
-                                            fontSize="10px"
-                                            color="error"
-                                            marginTop="6px"
-                                            marginLeft="10px"
-                                        >
-                                            {errors.email}
-                                        </Text>
-                                    ) : null}
+                                        <TextInput
+                                            id="password"
+                                            name="Senha"
+                                            placeholder="*******"
+                                            msgError="Senha Inválida;"
+                                        />
+                                    ) : (
+                                        <TextInput
+                                            id="password"
+                                            name="Senha"
+                                            placeholder="*******"
+                                        />
+                                    )}
 
                                     <Button type="submit"> Entrar </Button>
                                 </Form>
@@ -134,7 +130,6 @@ const Login: React.FC<Props> = ({ auth }) => {
 
 const mapStateToProps = (state: ApplicationState) => ({
     auth: state.auth.data,
-    loading: state.auth.loading
 })
 
 const mapDispatchToProps = (dispatch: Dispatch) =>

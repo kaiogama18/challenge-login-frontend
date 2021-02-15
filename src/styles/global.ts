@@ -42,7 +42,13 @@ export const Content = styled.div`
 `
 export const Space = styled.div`
     height: ${({ height }) => height};
-    position: inherit;
+
+    @media screen and (max-width: 600px) {
+        color: white
+        a {
+            color: white
+        }
+    }
 `
 
 export const ContentForm = styled.div`

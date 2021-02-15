@@ -9,17 +9,21 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     marginTop?: string
     fontMobile?: string
     marginLeft?: string
+    colorMobile?: string
     marginBottom?: string
 }
+
 const Paragraph = styled.div`
     width: ${props => props.width};
     font-size: ${props => props.fontSize};
+
     color: ${props =>
         props.color == 'error'
             ? props.theme.colors.error
             : props.color == 'neutral'
             ? props.theme.colors.neutral
             : props.theme.colors.text};
+
     text-align: ${props => props.align};
     font-weight: ${props => props.weight};
     margin-top: ${props => props.marginTop};
@@ -28,6 +32,10 @@ const Paragraph = styled.div`
 
     @media screen and (max-width: 600px) {
         margin-left: 0;
+        ${props =>
+            props.colorMobile == 'white'
+                ? 'color: white; a { color: white }'
+                : null}
         font-size: ${props => props.fontMobile};
     }
 `
@@ -42,7 +50,7 @@ const Text: React.FC<InputProps> = ({
     fontMobile,
     marginLeft,
     marginBottom,
-
+    colorMobile,
     ...rest
 }) => {
     return (
@@ -56,6 +64,7 @@ const Text: React.FC<InputProps> = ({
             fontMobile={fontMobile}
             marginLeft={marginLeft}
             marginBottom={marginBottom}
+            colorMobile={colorMobile}
             {...rest}
         />
     )

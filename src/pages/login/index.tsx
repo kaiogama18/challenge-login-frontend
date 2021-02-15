@@ -89,7 +89,7 @@ const Login: React.FC<Props> = ({ auth }) => {
                                             {errors.email}
                                         </Text>
                                     ) : (
-                                        <div className="sucess">sucess</div>
+                                        null
                                     )}
 
                                     <TextInput
@@ -118,6 +118,7 @@ const Login: React.FC<Props> = ({ auth }) => {
                     <Text
                         fontSize="14px"
                         color="neutral"
+                        colorMobile="white"
                         align="center"
                         marginLeft="22%"
                         width="212px"

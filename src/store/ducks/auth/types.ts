@@ -7,8 +7,6 @@ export enum AuthTypes {
     LOGIN_REQUEST = 'AUTH/LOGIN_REQUEST',
     LOGIN_SUCCESS = 'AUTH/LOGIN_SUCCESS',
     LOGIN_FAILURE = 'AUTH/LOGIN_FAILURE',
-
-    LOGOUT = 'AUTH/LOGOUT'
 }
 
 /**
@@ -26,7 +24,7 @@ export interface User {
  * */
 
 export interface AuthState {
-    readonly user: User
+    readonly data: User[]
     readonly isLogged: boolean
     readonly loading: boolean
     readonly error: boolean

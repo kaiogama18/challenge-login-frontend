@@ -2,15 +2,25 @@ import { Reducer } from 'redux'
 import { AuthState, AuthTypes } from './types'
 
 const INITIAL_STATE: AuthState = {
-    user: {
-        id: '1',
-        email: 'email 1',
-        password: 'password 1'
-    },
+    data: [
+        {
+            id: '1',
+            email: 'Alvera.Reinger6@hotmail.com',
+            password: 'R2a3VKnRdPpu8YL'
+        }
+    ],
     isLogged: false,
     loading: false,
     error: false
 }
+
+// const INITIAL_STATE: AuthState = {
+//     data: [],
+//     isLogged: false,
+//     loading: false,
+//     error: false
+// }
+
 
 const reducer: Reducer<AuthState> = (state = INITIAL_STATE, action) => {
     switch (action.type) {
@@ -19,7 +29,7 @@ const reducer: Reducer<AuthState> = (state = INITIAL_STATE, action) => {
         case AuthTypes.LOGIN_SUCCESS:
             return {
                 ...state,
-                user: action.user,
+                data: action.data,
                 isLogged: true,
                 loading: false
             }
@@ -28,14 +38,15 @@ const reducer: Reducer<AuthState> = (state = INITIAL_STATE, action) => {
                 ...state,
                 loading: false,
                 isLogged: false,
-                error: true
+                error: true,
+                data: []
             }
         case AuthTypes.LOGOUT:
             return {
                 ...state,
                 loading: false,
                 isLogged: false,
-                user: null
+                data: []
             }
         default:
             return state

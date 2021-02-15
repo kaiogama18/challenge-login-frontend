@@ -2,6 +2,7 @@ import { Form, Formik, FormikHelpers } from 'formik'
 import Head from 'next/head'
 import { connect } from 'react-redux'
 import { bindActionCreators, Dispatch } from 'redux'
+import * as Yup from 'yup'
 import Photo from '../../assets/shutterstocks.webp'
 import { Button, Img, Text, TextInput } from '../../components'
 import { ApplicationState } from '../../store'
@@ -15,20 +16,22 @@ interface Values {
 }
 
 interface StateProps {
-    auth: User
+    auth: User[]
+    loading: boolean
 }
 
 interface DispatchProps {
     loginRequest(): void
 }
 
-// interface OwnProps {}
-
-// type Props = StateProps & DispatchProps & OwnProps
 type Props = StateProps & DispatchProps
 
+const SignupSchema = Yup.object().shape({
+    password: Yup.string(),
+    email: Yup.string().email('Digite um e-mail válido;')
+})
+
 const Login: React.FC<Props> = ({ auth }) => {
-    // console.log(JSON.stringify(auth.email))
     return (
         <>
             <Head>
@@ -57,6 +60,7 @@ const Login: React.FC<Props> = ({ auth }) => {
                         </Text>
                         <Formik
                             initialValues={{ email: '', password: '' }}
+                            validationSchema={SignupSchema}
                             onSubmit={(
                                 values: Values,
                                 { setSubmitting }: FormikHelpers<Values>
@@ -67,23 +71,48 @@ const Login: React.FC<Props> = ({ auth }) => {
                                 }, 500)
                             }}
                         >
-                            <Form>
-                                <TextInput
-                                    id="email"
-                                    name="E-mail"
-                                    placeholder="user.name@mail.com"
-                                    msgError="Digite um e-mail válido;"
-                                />
+                            {({ errors, touched }) => (
+                                <Form>
+                                    <TextInput
+                                        id="email"
+                                        name="E-mail"
+                                        placeholder="user.name@mail.com"
+                                    />
 
-                                <TextInput
-                                    id="password"
-                                    name="Senha"
-                                    placeholder="*******"
-                                    msgError="Senha Inválida;"
-                                />
+                                    {errors.email && touched.email ? (
+                                        <Text
+                                            fontSize="10px"
+                                            color="error"
+                                            marginTop="6px"
+                                            marginLeft="10px"
+                                        >
+                                            {errors.email}
+                                        </Text>
+                                    ) : (
+                                        <div className="sucess">sucess</div>
+                                    )}
 
-                                <Button type="submit"> Entrar </Button>
-                            </Form>
+                                    <TextInput
+                                        id="password"
+                                        name="Senha"
+                                        placeholder="*******"
+                                        msgError="Senha Inválida;"
+                                    />
+
+                                    {errors.password && touched.password ? (
+                                        <Text
+                                            fontSize="10px"
+                                            color="error"
+                                            marginTop="6px"
+                                            marginLeft="10px"
+                                        >
+                                            {errors.email}
+                                        </Text>
+                                    ) : null}
+
+                                    <Button type="submit"> Entrar </Button>
+                                </Form>
+                            )}
                         </Formik>
                     </ContentForm>
                     <Text
@@ -103,7 +132,8 @@ const Login: React.FC<Props> = ({ auth }) => {
 }
 
 const mapStateToProps = (state: ApplicationState) => ({
-    auth: state.auth.user
+    auth: state.auth.data,
+    loading: state.auth.loading
 })
 
 const mapDispatchToProps = (dispatch: Dispatch) =>

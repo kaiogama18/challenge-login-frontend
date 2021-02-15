@@ -1,18 +1,17 @@
 import { Field } from 'formik'
 import { InputHTMLAttributes } from 'react'
 import styled from 'styled-components'
-import { Text } from '.'
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     id: string
     name: string
     placeholder?: string
-    msgError: string
+    msgError?: string
 }
 
 const Input = styled.div`
     display: flex;
     flex-direction: column;
-    margin: 17px 0;
+    margin: 17px 0 0 0;
 
     label {
         font-size: 10px;
@@ -37,21 +36,23 @@ const TextInput: React.FC<InputProps> = ({
     id,
     name,
     placeholder,
-    msgError
+    msgError,
+    ...rest
 }) => {
-
     return (
         <Input>
             <label htmlFor={id}>{name}</label>
-            <Field id={id} name={id} placeholder={placeholder} type={id} />
-            <Text
-                fontSize="10px"
-                color="error"
-                marginTop="6px"
-                marginLeft="10px"
-            >
-                {msgError}
-            </Text>
+            <Field
+                id={id}
+                name={id}
+                placeholder={placeholder}
+                type={id}
+                {...rest}
+                onfocus="if (this.hasAttribute('readonly')) {
+                    this.removeAttribute('readonly');
+                    // fix for mobile safari to show virtual keyboard
+                    this.blur();    this.focus();  }"
+            />
         </Input>
     )
 }

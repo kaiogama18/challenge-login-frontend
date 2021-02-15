@@ -24,6 +24,10 @@ export const Content = styled.div`
         justify-content: center;
     }
 `
+export const Space = styled.div`
+    height: ${({ height }) => height};
+    position: inherit;
+`
 
 export const ContentForm = styled.div`
     width: 257px;
@@ -32,6 +36,13 @@ export const ContentForm = styled.div`
     margin-left: 20%;
     flex-direction: column;
     justify-content: center;
+
+    .sucess {
+        font-size: 10px;
+        color: white;
+        margin-top : 6px
+        margin-left: 10px
+    }
 
     @media screen and (max-width: 600px) {
         padding: 10% 10% 7% 10%;

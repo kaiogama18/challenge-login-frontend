@@ -24,7 +24,9 @@ const Input = styled.div`
         border-radius: 8px;
         box-sizing: border-box;
         padding: 17px 0 17px 16px;
-        border: 1px solid ${props => props.theme.colors.neutral && ' #FF377F'};
+        // border: 1px solid ${props =>
+            props.theme.colors.neutral && ' #FF377F'};
+        border: 1px solid ${props => props.theme.colors.neutral};
     }
 
     @media screen and (max-width: 600px) {

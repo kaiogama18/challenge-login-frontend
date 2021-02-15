@@ -66,7 +66,7 @@ const Login: React.FC<Props> = ({ auth }) => {
                                 { setSubmitting }: FormikHelpers<Values>
                             ) => {
                                 setTimeout(() => {
-                                    alert(JSON.stringify(values, null, 2))
+                                    alert('USUÁRIO ENCONTRADO COM SUCESSO')
                                     setSubmitting(false)
                                 }, 500)
                             }}

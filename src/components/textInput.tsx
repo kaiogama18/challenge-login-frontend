@@ -50,10 +50,10 @@ const TextInput: React.FC<InputProps> = ({
                 placeholder={placeholder}
                 type={id}
                 {...rest}
-                onfocus="if (this.hasAttribute('readonly')) {
-                    this.removeAttribute('readonly');
-                    // fix for mobile safari to show virtual keyboard
-                    this.blur();    this.focus();  }"
+                // onfocus="if (this.hasAttribute('readonly')) {
+                //     this.removeAttribute('readonly');
+                //     // fix for mobile safari to show virtual keyboard
+                //     this.blur();    this.focus();  }"
             />
         </Input>
     )

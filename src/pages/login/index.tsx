@@ -8,7 +8,7 @@ import { Button, Img, Text, TextInput } from '../../components'
 import { ApplicationState } from '../../store'
 import * as AuthActions from '../../store/ducks/auth/actions'
 import { User } from '../../store/ducks/auth/types'
-import { Container, Content, ContentForm } from './styles'
+import { Container, Content, ContentForm } from '../../styles/global'
 
 interface Values {
     email: string

@@ -8,4 +8,3 @@ export const loginSucces = (data: User[]) =>
 
 export const loginFailure = () => action(AuthTypes.LOGIN_FAILURE)
 
-export const Logout = () => action(AuthTypes.LOGOUT)

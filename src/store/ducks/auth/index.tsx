@@ -41,13 +41,7 @@ const reducer: Reducer<AuthState> = (state = INITIAL_STATE, action) => {
                 error: true,
                 data: []
             }
-        case AuthTypes.LOGOUT:
-            return {
-                ...state,
-                loading: false,
-                isLogged: false,
-                data: []
-            }
+
         default:
             return state
     }

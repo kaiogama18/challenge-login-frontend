@@ -46,14 +46,7 @@ const TextInput: React.FC<InputProps> = ({
         <Input error={msgError == null ? true : false}>
             <label htmlFor={id}>{name}</label>
             <Field id={id} name={id} placeholder={placeholder} type={id} />
-            <Text
-                fontSize="10px"
-                color="error"
-                marginTop="6px"
-                marginLeft="10px"
-            >
-                {msgError}
-            </Text>
+            <Text error> {msgError} </Text>
         </Input>
     )
 }

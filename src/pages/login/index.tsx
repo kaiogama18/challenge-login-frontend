@@ -23,7 +23,7 @@ interface StateProps {
 }
 
 interface DispatchProps {
-    loginRequest(): void
+    loginRequest: (email: string, senha: string) => void
 }
 
 // type Props = StateProps & DispatchProps & Values
@@ -47,29 +47,17 @@ const Login: React.FC<StateProps> = ({ data, menssage }) => {
                 />
                 <Content>
                     <ContentForm>
-                        {/* <Text title>Olá, seja bem-vindo!</Text> */}
+                        <Text title>Olá, seja bem-vindo!</Text>
 
-                        <Text fontSize="40px" fontMobile="24px">
-                            Olá, seja bem-vindo!
-                        </Text>
-                        <Text
-                            fontSize="16px"
-                            fontMobile="12px"
-                            weight={600}
-                            marginTop="5%"
-                            marginBottom="5%"
-                            width="90%"
-                            color="neutral"
-                        >
+                        <Text subTitle>
                             Para acessar a plataforma, faça seu login.
                         </Text>
+
                         <Formik
                             initialValues={{ email: '', password: '' }}
                             validationSchema={SignupSchema}
                             onSubmit={(values, actions) => {
                                 if (values.email.length != 0) {
-                                    // console.log({  values, actions })
-                                    // alert(JSON.stringify(values, null, 2))
                                     alert(isLogged)
                                     actions.setSubmitting(false)
                                 } else {
@@ -115,14 +103,7 @@ const Login: React.FC<StateProps> = ({ data, menssage }) => {
                             )}
                         </Formik>
                     </ContentForm>
-                    <Text
-                        fontSize="14px"
-                        color="neutral"
-                        colorMobile="white"
-                        align="center"
-                        marginLeft="22%"
-                        width="212px"
-                    >
+                    <Text label align="center" marginLeft="22%">
                         Esqueceu seu login ou senha? Clique
                         <a href="/"> aqui</a>
                     </Text>

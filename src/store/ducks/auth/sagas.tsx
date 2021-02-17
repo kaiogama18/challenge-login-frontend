@@ -6,7 +6,7 @@ export function* login() {
     try {
         const response = yield call(api.get, 'users')
 
-        yield put(loginSucces(response.data))
+        yield put(loginSucces(response.data, response.code, response.menssage))
     } catch (err) {
         yield put(loginFailure())
     }

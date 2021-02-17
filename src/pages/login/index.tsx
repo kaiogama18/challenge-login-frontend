@@ -1,5 +1,6 @@
-import { Form, Formik, FormikHelpers } from 'formik'
+import { Form, Formik } from 'formik'
 import Head from 'next/head'
+import { useState } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators, Dispatch } from 'redux'
 import * as Yup from 'yup'
@@ -12,27 +13,28 @@ import { Container, Content, ContentForm } from '../../styles/global'
 
 export interface Values {
     email: string
-    password: string
+    senha: string
 }
 
 interface StateProps {
-    auth: User[]
-
+    code: number
+    menssage: string
+    data: User[]
 }
 
 interface DispatchProps {
     loginRequest(): void
 }
 
-type Props = StateProps & DispatchProps
+// type Props = StateProps & DispatchProps & Values
 
 const SignupSchema = Yup.object().shape({
     password: Yup.string(),
     email: Yup.string().email('Digite um e-mail válido;')
 })
 
-const Login: React.FC<Props> = ({ auth }) => {
-
+const Login: React.FC<StateProps> = ({ data, menssage }) => {
+    const [isLogged, setIsLogged] = useState(menssage)
     return (
         <>
             <Head>
@@ -64,14 +66,16 @@ const Login: React.FC<Props> = ({ auth }) => {
                         <Formik
                             initialValues={{ email: '', password: '' }}
                             validationSchema={SignupSchema}
-                            onSubmit={(
-                                values: Values,
-                                { setSubmitting }: FormikHelpers<Values>
-                            ) => {
-                                setTimeout(() => {
-                                    alert('USUÁRIO ENCONTRADO COM SUCESSO')
-                                    setSubmitting(false)
-                                }, 500)
+                            onSubmit={(values, actions) => {
+                                if (values.email.length != 0) {
+                                    // console.log({  values, actions })
+                                    // alert(JSON.stringify(values, null, 2))
+                                    alert(isLogged)
+                                    actions.setSubmitting(false)
+                                } else {
+                                    alert('USUÁRIO NÃO ENCONTRADO')
+                                    console.log({ values, actions })
+                                }
                             }}
                         >
                             {({ errors, touched }) => (
@@ -129,7 +133,9 @@ const Login: React.FC<Props> = ({ auth }) => {
 }
 
 const mapStateToProps = (state: ApplicationState) => ({
-    auth: state.auth.data,
+    code: state.auth.code,
+    menssage: state.auth.menssage,
+    data: state.auth.data
 })
 
 const mapDispatchToProps = (dispatch: Dispatch) =>

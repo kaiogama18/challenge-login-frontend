@@ -3,10 +3,9 @@
  * */
 
 export enum AuthTypes {
-
     LOGIN_REQUEST = 'AUTH/LOGIN_REQUEST',
     LOGIN_SUCCESS = 'AUTH/LOGIN_SUCCESS',
-    LOGIN_FAILURE = 'AUTH/LOGIN_FAILURE',
+    LOGIN_FAILURE = 'AUTH/LOGIN_FAILURE'
 }
 
 /**
@@ -14,9 +13,11 @@ export enum AuthTypes {
  * */
 
 export interface User {
-    id: string
+    nome: string
+    cpf: string
     email: string
-    password: string
+    senha: string
+    ativo: number
 }
 
 /**
@@ -24,8 +25,14 @@ export interface User {
  * */
 
 export interface AuthState {
+    readonly code: number
+    readonly menssage: string
     readonly data: User[]
-    readonly isLogged: boolean
-    readonly loading: boolean
-    readonly error: boolean
 }
+
+// export interface AuthState {
+//     readonly data: User[]
+//     readonly isLogged: boolean
+//     readonly loading: boolean
+//     readonly error: boolean
+// }

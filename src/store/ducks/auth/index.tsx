@@ -2,43 +2,34 @@ import { Reducer } from 'redux'
 import { AuthState, AuthTypes } from './types'
 
 const INITIAL_STATE: AuthState = {
+    code: 200,
+    menssage: 'USUÁRIO ENCONTRADO COM SUCESSO',
     data: [
         {
-            id: '1',
-            email: 'Alvera.Reinger6@hotmail.com',
-            password: 'R2a3VKnRdPpu8YL'
+            nome: 'usuario teste ',
+            cpf: '97517800043',
+            email: 'usuarioteste@gmail.com',
+            senha: 'heroku',
+            ativo: 1
         }
-    ],
-    isLogged: false,
-    loading: false,
-    error: false
+    ]
 }
-
-// const INITIAL_STATE: AuthState = {
-//     data: [],
-//     isLogged: false,
-//     loading: false,
-//     error: false
-// }
-
 
 const reducer: Reducer<AuthState> = (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case AuthTypes.LOGIN_REQUEST:
-            return { ...state, loading: true }
+            return { ...state }
+
         case AuthTypes.LOGIN_SUCCESS:
             return {
                 ...state,
-                data: action.data,
-                isLogged: true,
-                loading: false
+                menssage: action.menssage,
+                data: action.data
             }
         case AuthTypes.LOGIN_FAILURE:
             return {
                 ...state,
-                loading: false,
-                isLogged: false,
-                error: true,
+                menssage: action.menssage,
                 data: []
             }
 

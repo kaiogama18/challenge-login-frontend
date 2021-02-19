@@ -24,17 +24,29 @@ interface StateProps {
 
 interface DispatchProps {
     loginRequest: (email: string, senha: string) => void
+
+
+    // loginRequest: (
+    //     type: 'LOGIN_REQUEST',
+    //     email: string,
+    //     senha: string
+    // ) => void
+
+
+
 }
 
 // type Props = StateProps & DispatchProps & Values
+type Props = StateProps & DispatchProps
 
 const SignupSchema = Yup.object().shape({
     password: Yup.string(),
     email: Yup.string().email('Digite um e-mail válido;')
 })
 
-const Login: React.FC<StateProps> = ({ data, menssage }) => {
+const Login: React.FC<Props> = ({ code, menssage, loginRequest }) => {
     const [isLogged, setIsLogged] = useState(menssage)
+
     return (
         <>
             <Head>
@@ -58,7 +70,23 @@ const Login: React.FC<StateProps> = ({ data, menssage }) => {
                             validationSchema={SignupSchema}
                             onSubmit={(values, actions) => {
                                 if (values.email.length != 0) {
-                                    alert(isLogged)
+                                    // loginRequest(values.email, values.password)
+                                    // AuthActions.loginRequest(values.email, values.password)
+
+                                    // loginRequest(values.email, values.password)
+
+                                    // onSomeButtonClicked() {
+                                    //     const { userId, dispatch } = this.props
+                                    //     dispatch({type: 'USER_FETCH_REQUESTED', payload: {userId}})
+                                    //   }
+
+                                    alert('USUÁRIO ENCONTRADO COM SUCESSO')
+
+                                    console.log(
+                                        '==> Code: ' + code,
+                                        ' --> Menssage: ' + menssage
+                                    )
+                                    // alert(isLogged)
                                     actions.setSubmitting(false)
                                 } else {
                                     alert('USUÁRIO NÃO ENCONTRADO')
@@ -121,5 +149,14 @@ const mapStateToProps = (state: ApplicationState) => ({
 
 const mapDispatchToProps = (dispatch: Dispatch) =>
     bindActionCreators(AuthActions, dispatch)
+
+// const mapDispatchToProps = dispatch => {
+//     return {
+//       // dispatching plain actions
+//       increment: () => dispatch({ type: 'INCREMENT' }),
+//       decrement: () => dispatch({ type: 'DECREMENT' }),
+//       reset: () => dispatch({ type: 'RESET' })
+//     }
+//   }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login)

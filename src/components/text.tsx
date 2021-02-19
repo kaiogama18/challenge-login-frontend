@@ -1,6 +1,10 @@
-import { InputHTMLAttributes } from 'react'
 import styled from 'styled-components'
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+interface InputProps {
+    title?: true
+    subTitle?: true
+    label?: true
+    error?: true
+
     align?: string
     color?: string
     width?: string
@@ -13,23 +17,47 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     marginBottom?: string
 }
 
-interface Error {
-    alert?: boolean
-}
+const Title = styled.h1`
+    margin: 0;
+    font-size: 40px;
+    font-weight: 400;
+    color: ${props => props.theme.colors.text};
+    @media screen and (max-width: 600px) {
+        font-size: 34px;
+    }
+`
 
-type Props = InputProps & Error
+const SubTitle = styled.h2`
+    width: 90%;
+    font-size: 16px;
+    font-weight: 600;
+    color: ${props => props.theme.colors.neutral};
+    @media screen and (max-width: 600px) {
+        font-size: 12px;
+    }
+`
+
+const Label = styled.p`
+    margin: 0;
+    width: 212px;
+    font-size: 14px;
+    color: ${props => props.theme.colors.neutral};
+    @media screen and (max-width: 600px) {
+        font-size: 12px;
+        color: white;
+        a {
+            color: white;
+        }
+    }
+`
+const Error = styled.p`
+    font-size: 10px;
+    margin: 10px 0 0 6px;
+    color: ${props => props.theme.colors.error};
+`
 
 const Paragraph = styled.div`
     width: ${props => props.width};
-    font-size: ${props => props.fontSize};
-
-    color: ${props =>
-        props.color == 'error'
-            ? props.theme.colors.error
-            : props.color == 'neutral'
-            ? props.theme.colors.neutral
-            : props.theme.colors.text};
-
     text-align: ${props => props.align};
     font-weight: ${props => props.weight};
     margin-top: ${props => props.marginTop};
@@ -38,15 +66,13 @@ const Paragraph = styled.div`
 
     @media screen and (max-width: 600px) {
         margin-left: 0;
-        ${props =>
-            props.colorMobile == 'white'
-                ? 'color: white; a { color: white }'
-                : null}
-        font-size: ${props => props.fontMobile};
     }
 `
 
-const Text: React.FC<Props> = ({
+const Text: React.FC<InputProps> = ({
+    title,
+    subTitle,
+    label,
     fontSize,
     color,
     align,
@@ -57,23 +83,19 @@ const Text: React.FC<Props> = ({
     marginLeft,
     marginBottom,
     colorMobile,
-    alert,
     ...rest
 }) => {
     return (
-        <Paragraph
-            align={align}
-            width={width}
-            color={color}
-            weight={weight}
-            fontSize={fontSize}
-            marginTop={marginTop}
-            fontMobile={fontMobile}
-            marginLeft={marginLeft}
-            marginBottom={marginBottom}
-            colorMobile={colorMobile}
-            {...rest}
-        >
+        <Paragraph marginLeft={marginLeft} marginTop={marginTop} align={align}>
+            {title ? (
+                <Title {...rest} />
+            ) : subTitle ? (
+                <SubTitle {...rest} />
+            ) : label ? (
+                <Label {...rest} />
+            ) : (
+                <Error {...rest} />
+            )}
         </Paragraph>
     )
 }

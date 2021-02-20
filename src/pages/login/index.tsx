@@ -23,18 +23,16 @@ interface StateProps {
 }
 
 interface DispatchProps {
-    loginRequest: (email: string, senha: string) => void
-
-
-    // loginRequest: (
-    //     type: 'LOGIN_REQUEST',
-    //     email: string,
-    //     senha: string
-    // ) => void
-
-
-
+    // AuthActions.loginRequest('foo', 'asdas' )
 }
+
+// const Authentication = (email: string, senha: string) => {
+//     loginRequest: () => ({
+//         type: 'LOGIN_REQUEST',
+//         email,
+//         senha
+//     })
+// }
 
 // type Props = StateProps & DispatchProps & Values
 type Props = StateProps & DispatchProps
@@ -44,7 +42,7 @@ const SignupSchema = Yup.object().shape({
     email: Yup.string().email('Digite um e-mail válido;')
 })
 
-const Login: React.FC<Props> = ({ code, menssage, loginRequest }) => {
+const Login: React.FC<Props> = ({ code, menssage }) => {
     const [isLogged, setIsLogged] = useState(menssage)
 
     return (
@@ -71,17 +69,11 @@ const Login: React.FC<Props> = ({ code, menssage, loginRequest }) => {
                             onSubmit={(values, actions) => {
                                 if (values.email.length != 0) {
                                     // loginRequest(values.email, values.password)
-                                    // AuthActions.loginRequest(values.email, values.password)
-
-                                    // loginRequest(values.email, values.password)
-
-                                    // onSomeButtonClicked() {
-                                    //     const { userId, dispatch } = this.props
-                                    //     dispatch({type: 'USER_FETCH_REQUESTED', payload: {userId}})
-                                    //   }
-
+                                    // Authentication(
+                                    //     values.email,
+                                    //     values.password
+                                    // )
                                     alert('USUÁRIO ENCONTRADO COM SUCESSO')
-
                                     console.log(
                                         '==> Code: ' + code,
                                         ' --> Menssage: ' + menssage
@@ -147,16 +139,9 @@ const mapStateToProps = (state: ApplicationState) => ({
     data: state.auth.data
 })
 
-const mapDispatchToProps = (dispatch: Dispatch) =>
+const mapDispatchToProps = (dispatch: Dispatch) => (
     bindActionCreators(AuthActions, dispatch)
 
-// const mapDispatchToProps = dispatch => {
-//     return {
-//       // dispatching plain actions
-//       increment: () => dispatch({ type: 'INCREMENT' }),
-//       decrement: () => dispatch({ type: 'DECREMENT' }),
-//       reset: () => dispatch({ type: 'RESET' })
-//     }
-//   }
+)
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login)

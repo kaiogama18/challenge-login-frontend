@@ -3,7 +3,8 @@ import { loginFailure, loginSucces } from './actions'
 
 export function* login(action) {
     try {
-        // const response = yield call(api.get, 'users')/
+
+        // const response = yield call(api.get, '/users')/
         // const response = yield call(api.get, '/login/usuario/')
 
         // const response = yield call(action.email, '/login/usuario/', {

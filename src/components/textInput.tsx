@@ -29,6 +29,23 @@ const Input = styled.div`
         border: 1px solid
             ${props =>
                 props.error == true ? props.theme.colors.neutral : '#FF377F'};
+
+        span {
+            position: absolute;
+            display: block;
+            top: 5px;
+            right: 0px;
+            width: 16px;
+            height: 16px;
+            background:
+                0 -690px;
+            cursor: pointer;
+        }
+
+        input {
+                padding-right: 16px;
+                box-sizing: border-box;
+            }
     }
 
     @media screen and (max-width: 600px) {
@@ -40,12 +57,12 @@ const TextInput: React.FC<InputProps> = ({
     id,
     name,
     placeholder,
-    msgError
+    msgError,
 }) => {
     return (
         <Input error={msgError == null ? true : false}>
             <label htmlFor={id}>{name}</label>
-            <Field id={id} name={id} placeholder={placeholder} type={id} />
+            <Field id={id} name={id} placeholder={placeholder} type={id}  />
             <Text error> {msgError} </Text>
         </Input>
     )

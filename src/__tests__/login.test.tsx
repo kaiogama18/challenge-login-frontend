@@ -4,7 +4,7 @@ import Login, { Values as Props } from '../pages/login/index'
 function renderLoginForm(props: Partial<Props> = {}) {
     const defaultProps: Props = {
         email: 'teste@gmail.com',
-        password: '44563'
+        senha: '44563'
     }
     return render(<Login {...defaultProps} {...props} />)
 }

@@ -19,7 +19,7 @@ Este projeto faz parte do teste técnico e tem com função demostrar o fluxo de
 
 Em seguida, visite [http://localhost:3000](http://localhost:3000) em seu navegador.
 
-![2021-03-18 23 19 45 challenge-login-frontend vercel app df8e020bfb02](https://user-images.githubusercontent.com/15802576/111727026-7361b600-8840-11eb-9383-811988fe0267.png)
+![2021-03-18 23 20 14 challenge-login-frontend vercel app a7667595278b](https://user-images.githubusercontent.com/15802576/111727047-83799580-8840-11eb-95d1-e2947214f1e9.png)
 
 
 ---

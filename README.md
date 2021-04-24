@@ -4,7 +4,7 @@
 
 ## Site: https://challenge-login-frontend.vercel.app/
 
-Este projeto faz parte do teste técnico e tem com função demostrar o fluxo de login usando as Stack: React, Typescript, Hooks, NextJS, Styled Components, Redux & Redux Saga e Axios
+Este projeto faz parte do Wedo e tem com função demostrar o fluxo de login usando as Stack: React, Typescript, Hooks, NextJS, Styled Components, Redux & Redux Saga e Axios
 
 
 ## Clonando o projeto e executando

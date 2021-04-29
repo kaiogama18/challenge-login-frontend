@@ -1,6 +1,7 @@
 <h1 align="center">
-  Sondagem Técnica e Criativa - Frontend
+  Frontend
 </h1>
+<!-- Sondagem Técnica e Criativa -->
 
 ## Site: https://challenge-login-frontend.vercel.app/
 
